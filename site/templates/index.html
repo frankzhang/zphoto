@@ -19,93 +19,248 @@
   </head>
 
   <body>
+    <header class="site-header">
+      <nav class="navbar navbar-expand-md navbar-light">
+	<div class="container">
+	<a class="navbar-brand" href="#">
+	  <img src="{% static 'zphoto.png' %}" height="20rem"alt="Z"></a>
 
-    <nav class="navbar navbar-expand-md navbar-light fixed-top">
-      <a class="navbar-brand" href="#">
-	      <img src="{% static 'zphoto.png' %}" height="20rem"alt="Z"></a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#NavigationBar" aria-controls="NavigationBar" aria-expanded="false" aria-label="Toggle navigation">
+	  <span class="navbar-toggler-icon"></span>
+	</button>
 
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#NavigationBar" aria-controls="NavigationBar" aria-expanded="false" aria-label="Toggle navigation">
-	<span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="NavigationBar">
-	<ul class="navbar-nav mr-auto">
-	  <li class="nav-item active">
-	    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-	  </li>
-	  <li class="nav-item">
-	    <a class="nav-link" href="#">Link</a>
-	  </li>
-	  <li class="nav-item">
-	    <a class="nav-link disabled" href="#">Disabled</a>
-	  </li>
-	  <li class="nav-item dropdown">
-	    <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-	    <div class="dropdown-menu" aria-labelledby="dropdown01">
-	      <a class="dropdown-item" href="#">Upload photograph</a>
-	      <a class="dropdown-item" href="#"> action</a>
-	      <a class="dropdown-item" href="#">Something else here</a>
-	    </div>
-	  </li>
-	</ul>
-	
-	<button type="button" class="btn btn-inline btn-outline-primary">sign up</button>
-      </div>
-    </nav>
+	<div class="collapse navbar-collapse" id="NavigationBar">
+	  <ul class="navbar-nav mr-auto">
+	    <li class="nav-item active">
+	      <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+	    </li>
+	    <li class="nav-item">
+	      <a class="nav-link" href="#">Link</a>
+	    </li>
+	    <li class="nav-item">
+	      <a class="nav-link disabled" href="#">Disabled</a>
+	    </li>
+	    <li class="nav-item dropdown">
+	      <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+	      <div class="dropdown-menu" aria-labelledby="dropdown01">
+		<a class="dropdown-item" href="#">Upload photograph</a>
+		<a class="dropdown-item" href="#"> action</a>
+		<a class="dropdown-item" href="#">Something else here</a>
+	      </div>
+	    </li>
+	  </ul>
+	  
+	  <button type="button" class="btn btn-inline btn-outline-primary">sign up</button>
+	</div>
+	</div>
+      </nav>
+    </header>
     
-    <main role="main" class="container">
+    <main role="main" class="content">
 
-      <div class="introduce">
-	<h1>online photograph convert tool</h1>
-	<p class="lead">Want to convert photograph file to others type? or shirk to a small size for speeding up web application?
-	  This site is right for doing those tasks.
-      </div>
+      <div class="container">
+      	<div class="row justify-content-lg-between align-items-lg-center py-4">
+      	  <div class="col-lg-5 mb-4">
+      	    <h1 class="display-4">online picture convert tool</h1>
+      	    <p class="lead">Want to convert picture file to others type? or shirk to a small size for speeding up web application? try upload your pictrue and do the convertiong 
+      	    </p>
+	    
+      	    <!-- <a href="#" class="btn btn-outline-primary">upload your file</a> -->
+      	    <input class="btn btn-primary" type="file" id="uploadFile" multiple="" style="display:none"  onChange="handleUploadFile(this.files)">
+      	    <a href="#" id="fileSelect" class="btn btn-primary">upload</a>
+      	  </div>
 
-      <div class="card-deck mb-3">
-	<div class="card text-center shadow " >
-	  <div class="card-body">
-	    <h5 class="card-title">Upload your file</h5>
-	    <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
-	    <p class="card-text">png, jpeg, jpg file is accepted file type</p>
+      	  <div class ="col-lg-7">
+	    
+      	    <div class="card-deck d-block fluid mb-3">
+      	      <div class="card text-center shadow "  id="fileList">
+      		<div class="card-header">
+      		  <h4 class="font-weight-normal">file transformer: </h4>
+      		</div>
+      		<div class="card-body">
+      		  <!-- <h5 class="card-title">Upload your file</h5> -->
+      		  <p class="card-text">png, jpeg, jpg file is accepted file type</p>
+      		</div>
 
-	    <!-- <a href="#" class="btn btn-outline-primary">upload your file</a> -->
-	    <input class="btn btn-primary" type="file" id="uploadFile" multiple="" style="display:none"  onChange="handleUploadFile(this.files)">
-	    <a href="#" id="fileSelect" class="btn btn-primary">upload<span class="badge badge-light">1</span></a>
-	  </div>
+      	      </div>
+      	    </div >
+      	  </div>
 
-	</div>
-	<div class="card shadow " id ="fileList">
-	</div>
-      </div >
+      	</div>
+	
+      	<!-- operations that could be applied to transformer -->
+      	<!-- =============================================== -->
+      	<div class="container operation">
+      	  <div class="row pt-4">
+      	    <div class="col-sm-6 col-md-4 mb-4 mb-md-5">
+	      
+      	      <form>
+      	  	<div class="form-check">
+      	  	  <input class ="form-check-input" type="radio" name="option-level" checked >
+      	  	  <label class ="form-check-label" for="normal">
+      	  	    normal
+      	  	  </label>
+      	  	</div>
 
-      <form>
-	<div class="form-group">
-	  <label for="formControlRange">Example Range input</label>
-	  <input type="range" class="form-control-range" id="formControlRange">
-	</div>
-	</form>
-      <div class="operation">
-	<form class="form-check">
-	  <div class="form-check form-check-inline" >
-	    <input class ="form-check-input" type="radio" name="option-level" checked >
-	    <label class ="form-check-label" for="normal">
-	      normal
-	  </div>
+      	  	<div class="form-check form-check-inline">
+      	  	  <input class ="form-check-input" type="radio" name="option-level">
+      	  	  <label class ="form-check-label" for="smallest">
+      	  	    smallest
+      	  	  </label>
+      	  	</div>
+		
+      	  	<div class="form-group">
+      	  	  <label for="formControlRange">resize</label>
+      	  	  <input type="range" class="form-control-range" id="formControlRange">
+      	  	</div>
+		
+      	  	<input class="btn btn-primary" type="submit" value="apply">
+      	  	<input class="btn btn-primary" type="submit" value="add to templates">
+      	      </form>
+	      
+      	    </div>
+	    
+	    
+      	    <div class="col-sm-6 col-md-4 mb-4 mb-md-5">
+      	      <form>
+      	  	<div class="form-check">
+      	  	  <input class ="form-check-input" type="radio" name="option-level" checked >
+      	  	  <label class ="form-check-label" for="normal">
+      	  	    normal
+      	  	  </label>
+      	  	</div>
 
-	  <div class="form-check form-check-inline">
-	    <input class ="form-check-input" type="radio" name="option-level">
-	    <label class ="form-check-label" for="smallest">
-	      smallest
-	  </div>
-	  <div>
-	    <input class="btn btn-primary" type="submit" value="convert">
-	  </div>
-	</form>
+      	  	<div class="form-check form-check-inline">
+      	  	  <input class ="form-check-input" type="radio" name="option-level">
+      	  	  <label class ="form-check-label" for="smallest">
+      	  	    smallest
+      	  	  </label>
+      	  	</div>
+		
+      	  	<div class="form-group">
+      	  	  <label for="formControlRange">resize</label>
+      	  	  <input type="range" class="form-control-range" id="formControlRange">
+      	  	</div>
+		
+      	  	<input class="btn btn-primary" type="submit" value="apply">
+      	  	<input class="btn btn-primary" type="submit" value="add to templates">
+      	      </form>
+	      
+      	    </div>
+	    
+      	    <div class="col-sm-6 col-md-4 mb-4 mb-md-5">
+      	      <form>
+      	  	<div class="form-check">
+      	  	  <input class ="form-check-input" type="radio" name="option-level" checked >
+      	  	  <label class ="form-check-label" for="normal">
+      	  	    normal
+      	  	  </label>
+      	  	</div>
+
+      	  	<div class="form-check form-check-inline">
+      	  	  <input class ="form-check-input" type="radio" name="option-level">
+      	  	  <label class ="form-check-label" for="smallest">
+      	  	    smallest
+      	  	  </label>
+      	  	</div>
+		
+      	  	<div class="form-group">
+      	  	  <label for="formControlRange">resize</label>
+      	  	  <input type="range" class="form-control-range" id="formControlRange">
+      	  	</div>
+		
+      	  	<input class="btn btn-primary" type="submit" value="apply">
+      	  	<input class="btn btn-primary" type="submit" value="add to templates">
+      	      </form>
+      	    </div>
+	    
+      	    <div class="col-sm-6 col-md-4 mb-4 mb-md-5">
+      	      <form>
+      	  	<div class="form-check">
+      	  	  <input class ="form-check-input" type="radio" name="option-level" checked >
+      	  	  <label class ="form-check-label" for="normal">
+      	  	    normal
+		  </label>
+
+      	  	</div>
+		
+      	  	<div class="form-check form-check-inline">
+      	  	  <input class ="form-check-input" type="radio" name="option-level">
+      	  	  <label class ="form-check-label" for="smallest">
+      	  	    smallest
+      	  	  </label>
+      	  	</div>
+		
+      	  	<div class="form-group">
+      	  	  <label for="formControlRange">resize</label>
+      	  	  <input type="range" class="form-control-range" id="formControlRange">
+      	  	</div>
+		
+      	  	<input class="btn btn-primary" type="submit" value="apply">
+      	  	<input class="btn btn-primary" type="submit" value="add to templates">
+      	      </form>
+      	    </div>
+	    
+      	    <div class="col-sm-6 col-md-4 mb-4 mb-md-5">
+      	      <form>
+      	  	<div class="form-check">
+      	  	  <input class ="form-check-input" type="radio" name="option-level" checked >
+      	  	  <label class ="form-check-label" for="normal">
+      	  	    normal
+      	  	  </label>
+      	  	</div>
+
+      	  	<div class="form-check form-check-inline">
+      	  	  <input class ="form-check-input" type="radio" name="option-level">
+      	  	  <label class ="form-check-label" for="smallest">
+      	  	    smallest
+      	  	  </label>
+      	  	</div>
+		
+      	  	<div class="form-group">
+      	  	  <label for="formControlRange">resize</label>
+      	  	  <input type="range" class="form-control-range" id="formControlRange">
+      	  	</div>
+		
+      	  	<input class="btn btn-primary" type="submit" value="apply">
+      	  	<input class="btn btn-primary" type="submit" value="add to templates">
+      	      </form>
+      	    </div>
+	    
+      	    <div class="col-sm-6 col-md-4 mb-4 mb-md-5">
+      	      <form>
+      	    	<div class="form-check">
+      	    	  <input class ="form-check-input" type="radio" name="option-level" checked >
+      	    	  <label class ="form-check-label" for="normal">
+      	    	    normal
+      	    	  </label>
+      	    	</div>
+
+      	    	<div class="form-check form-check-inline">
+      	    	  <input class ="form-check-input" type="radio" name="option-level">
+      	    	  <label class ="form-check-label" for="smallest">
+      	    	    smallest
+      	    	  </label>
+      	    	</div>
+		
+      	    	<div class="form-group">
+      	    	  <label for="formControlRange">resize</label>
+      	    	  <input type="range" class="form-control-range" id="formControlRange">
+      	    	</div>
+		
+      	    	<input class="btn btn-primary" type="submit" value="apply">
+      	    	<input class="btn btn-primary" type="submit" value="add to templates">
+      	      </form>
+      	    </div>
+	    
+      	  </div>
+      	</div>
+	
+	
       </div>
       
     </main>
-    <!-- /.container -->
-
+    
     <!-- js script ===================================== -->
     <script src="{% static 'uploadfile.js' %}" ></script>
 

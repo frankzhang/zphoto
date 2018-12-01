@@ -1,11 +1,18 @@
 body {
-    padding-top: 5rem;
+  /*  padding-top: 5rem; */
 }
-.introduce {
-    padding: 2.5rem 1.5rem;
-    /* text-align: center; */
+.container {
+    padding: 1rem 1.5rem;
+ /*   text-align: center; */
 }
 
+#fileList {
+   /* margin: 2rem auto; */
+    border:.1rem dashed;
+    border-radius:1rem;
+    cursor: pointer;
+    
+}
 .operation {
     padding: 1rem 0rem;
 }
