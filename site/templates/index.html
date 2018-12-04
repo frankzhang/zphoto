@@ -50,7 +50,7 @@
 	    </li>
 	  </ul>
 	  
-	  <button type="button" class="btn btn-inline btn-outline-primary">sign up</button>
+	  <button type="button" class="btn  btn-outline-primary">sign up</button>
 	</div>
 	</div>
       </nav>
@@ -61,8 +61,8 @@
       <div class="container">
       	<div class="row justify-content-lg-between align-items-lg-center py-4">
       	  <div class="col-lg-5 mb-4">
-      	    <h1 class="display-4">online picture convert tool</h1>
-      	    <p class="lead">Want to convert picture file to others type? or shirk to a small size for speeding up web application? try upload your pictrue and do the convertiong 
+      	    <h1>Online photograph converting</h1>
+      	    <p class="lead">Want to convert picture to others type? or shirk picture to smaller for speeding up web application? try uploading and converting your picture
       	    </p>
 	    
       	    <!-- <a href="#" class="btn btn-outline-primary">upload your file</a> -->
@@ -72,14 +72,14 @@
 
       	  <div class ="col-lg-7">
 	    
-      	    <div class="card-deck d-block fluid mb-3">
-      	      <div class="card text-center shadow "  id="fileList">
+      	    <div class="card-deck d-block fluid mb-3" >
+      	      <div class="card text-center shadow" id="fileTransformer">
       		<div class="card-header">
       		  <h4 class="font-weight-normal">file transformer: </h4>
       		</div>
-      		<div class="card-body">
+      		<div class="card-body" id="fileList">
       		  <!-- <h5 class="card-title">Upload your file</h5> -->
-      		  <p class="card-text">png, jpeg, jpg file is accepted file type</p>
+      		  <p class="card-text">png, jpeg, jpg file is accepted file type,</p>
       		</div>
 
       	      </div>
@@ -91,7 +91,7 @@
       	<!-- operations that could be applied to transformer -->
       	<!-- =============================================== -->
       	<div class="container operation">
-      	  <div class="row pt-4">
+      	  <div class="row">
       	    <div class="col-sm-6 col-md-4 mb-4 mb-md-5">
 	      
       	      <form>
@@ -114,8 +114,8 @@
       	  	  <input type="range" class="form-control-range" id="formControlRange">
       	  	</div>
 		
-      	  	<input class="btn btn-primary" type="submit" value="apply">
-      	  	<input class="btn btn-primary" type="submit" value="add to templates">
+      	  	<input class="btn btn-outline-primary" type="submit" value="apply">
+      	  	<input class="btn btn-outline-primary" type="submit" value="add to templates">
       	      </form>
 	      
       	    </div>
@@ -142,8 +142,8 @@
       	  	  <input type="range" class="form-control-range" id="formControlRange">
       	  	</div>
 		
-      	  	<input class="btn btn-primary" type="submit" value="apply">
-      	  	<input class="btn btn-primary" type="submit" value="add to templates">
+      	  	<input class="btn btn-outline-primary" type="submit" value="apply">
+      	  	<input class="btn btn-outline-primary" type="submit" value="add to templates">
       	      </form>
 	      
       	    </div>
@@ -169,8 +169,8 @@
       	  	  <input type="range" class="form-control-range" id="formControlRange">
       	  	</div>
 		
-      	  	<input class="btn btn-primary" type="submit" value="apply">
-      	  	<input class="btn btn-primary" type="submit" value="add to templates">
+      	  	<input class="btn btn-outline-primary" type="submit" value="apply">
+      	  	<input class="btn btn-outline-primary" type="submit" value="add to templates">
       	      </form>
       	    </div>
 	    
@@ -196,8 +196,8 @@
       	  	  <input type="range" class="form-control-range" id="formControlRange">
       	  	</div>
 		
-      	  	<input class="btn btn-primary" type="submit" value="apply">
-      	  	<input class="btn btn-primary" type="submit" value="add to templates">
+      	  	<input class="btn btn-outline-primary" type="submit" value="apply">
+      	  	<input class="btn btn-outline-primary" type="submit" value="add to templates">
       	      </form>
       	    </div>
 	    
@@ -222,8 +222,8 @@
       	  	  <input type="range" class="form-control-range" id="formControlRange">
       	  	</div>
 		
-      	  	<input class="btn btn-primary" type="submit" value="apply">
-      	  	<input class="btn btn-primary" type="submit" value="add to templates">
+      	  	<input class="btn btn-outline-primary" type="submit" value="apply">
+      	  	<input class="btn btn-outline-primary" type="submit" value="add to templates">
       	      </form>
       	    </div>
 	    
@@ -248,8 +248,8 @@
       	    	  <input type="range" class="form-control-range" id="formControlRange">
       	    	</div>
 		
-      	    	<input class="btn btn-primary" type="submit" value="apply">
-      	    	<input class="btn btn-primary" type="submit" value="add to templates">
+      	    	<input class="btn btn-outline-primary" type="submit" value="apply">
+      	    	<input class="btn btn-outline-primary" type="submit" value="add to templates">
       	      </form>
       	    </div>
 	    
@@ -260,6 +260,12 @@
       </div>
       
     </main>
+    <footer class="footer">
+      <div class="container">
+	<hr class="m-0">
+	<div class="text-muted text-center">
+	  <p>© 2018 - ZLAB</p>
+    </footer>
     
     <!-- js script ===================================== -->
     <script src="{% static 'uploadfile.js' %}" ></script>
