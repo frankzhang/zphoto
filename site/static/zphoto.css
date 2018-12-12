@@ -11,9 +11,22 @@ body {
    /* margin: 2rem auto; */
     border:.1rem;
     border-radius:1rem;
-    cursor: pointer;
 }
 
 .operation {
     padding: 1rem 0rem;
+}
+
+#fileTransformer .file-preview{
+    border:0;
+}
+
+#fileTransformer div.kv-upload-progress{
+    display: none;
+}
+
+#fileTransformer div.card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
