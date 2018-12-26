@@ -11,7 +11,7 @@ def upload(request):
         print(request.POST)
         print(request.FILES)
 
-        files = request.FILES.getlist('fileList[]')
+        files = request.FILES.getlist('fileList')
 
         for f in files:
             # default_storage.save(None,f)

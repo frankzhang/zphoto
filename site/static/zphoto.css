@@ -19,6 +19,7 @@ body {
 
 #fileTransformer .file-preview{
     border:0;
+    margin-bottom: 0px;
 }
 
 #fileTransformer div.kv-upload-progress{
@@ -29,4 +30,14 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+#fileTransformer div.file-drop-zone {
+    border:2px dashed #aaa;
+    padding:  0px;
+}
+#fileTransformer .theme-explorer-fas .explorer-frame .kv-file-content {
+    width: 40px;
+    height: 40px;
+    padding: 2px;
 }

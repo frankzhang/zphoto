@@ -66,7 +66,7 @@
       	<div class="row justify-content-lg-between align-items-lg-center py-4">
       	  <div class="col-lg-5 mb-4">
       	    <h1>Online photograph converting</h1>
-      	    <p class="lead">Want to convert picture to others type? or shirk picture to smaller for speeding up web application? try uploading and converting your picture
+      	    <p class="lead">Want to convert picture to others type? or shirk picture to smaller for speeding up web application? try uploading and converting your pictures.
       	    </p>
 	    
       	    <!-- <a href="#" class="btn btn-outline-primary">upload your file</a> -->
@@ -77,28 +77,34 @@
       	  <div class ="col-lg-7">
 	    
       	    <div class="card-deck d-block fluid mb-3" >
+	      
       	      <div class="card text-center shadow" id="fileTransformer">
+		
       		<div class="card-header">
-      		  <h4 class="font-weight-normal">transformer: </h4>
-		<div class="img-op-list">img-op-list
-		</div>
-      		</div>
-      		<div class="card-body p-0" id="fileList">
-		  <!-- <form enctype="multipart/form-data"> -->
-		    <div class="file-loading">
-		      <label for="file-input">fileInput</label>
-		      <input id="file-input" name="fileList[]" type="file" multiple>
-		      <!-- <input id="fileInput" type="file" multiple data-theme="fas"> -->
+		  <from class="form-row form-inline">
+		    <div class="form-group img-op-select">
+		      <label for="imageOperation"class="col-auto font-weight-bold"> Transformer:</label>
+		      <select id="imageOperation" class="custom-select">
+			<option selected>Compress</option>
+			<option>Resize</option>
+			<option>Convert</option>
+			<option>Transparent</option>
+			<option>Watermark</option>
+			<option>Animate</option>
+		      </select>
 		    </div>
-		    <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
-		    <!-- <button type="reset" class="btn btn-outline-secondary">Reset</button> -->
-		  <!-- </form> -->
-		  
-     		  <!-- <h5 class="card-title">Upload your file</h5> -->
-      		  <!-- <p class="card-text">png, jpeg, jpg file is accepted file type,</p> -->
+		  </form>
+		</div>
+		
+      		<div class="card-body pt-0 pl-0 pr-0 pb-2" id="fileList">
+		  <form enctype="multipart/form-data " >
+		    <div class="file-loading">
+		      <label for="file-input">file uploaded</label>
+		      <input id="file-input" name="fileList" type="file" multiple>
+		    </div>
+		  </form>
       		</div>
-
-
+		</div>
 
       	      </div>
       	    </div >
@@ -109,132 +115,166 @@
       	<!-- operations that could be applied to transformer -->
       	<!-- =============================================== -->
       	<div class="container">
-      	  <div class="row">
-      	    <div class="col-sm-6 col-md-4 mb-4 mb-md-5">
+	  <!-- mb-md-5 -->
+	  <div class="card-deck mb-3">
+      	    <div class="row">
 	      
-      	      <form class="img-op" id="compress" >
-		<h4>compress</h4>
-      	  	<div class="form-check">
-      	  	  <input class ="form-check-input" type="radio" name="compress-level" checked >
-      	  	  <label class ="form-check-label" for="regular">
-      	  	    normal
-      	  	  </label>
-      	  	</div>
+      	      <div class="col-sm-6 col-md-4">
+      		<div class="card mb-4 px-0 ">
+		  <div class="card-header"><h4 class="my-0 font-weight-normal">Compress</h4></div>
+		  <div class="card-body">
+      		    <form class="img-op" id="compress" >
 
-      	  	<div class="form-check">
-      	  	  <input class ="form-check-input" type="radio" name="compress-level">
-      	  	  <label class ="form-check-label" for="small">
-      	  	    small
-      	  	  </label>
-      	  	</div>
+      	  	      <div class="custom-control">
+      	  		<label for="compressLevel">compress-level</label>
+      	  		<input type="range" class="custom-range" min="1" max="10" step="1" id="compressLevel">
+      	  	      </div>
+		      
+		      <div class="custom-control custom-radio">
+      	  		<input class="custom-control-input" type="radio" id="compress-depth8" name="compress-depth" checked >
+      	  		<label class="custom-control-label" for="compress-depth8">8bit depth</label>
+      	  	      </div>
+		      <div class="custom-control custom-radio">
+      	  		<input class="custom-control-input" type="radio" id="compress-depth16" name="compress-depth" >
+      	  		<label class="custom-control-label" for="compress-depth16">16bit depth</label>
+      	  	      </div>
+		      <div class="custom-control custom-radio">
+      	  		<input class="custom-control-input" type="radio" id="compress-depth-ori" name="compress-depth" >
+      	  		<label class="custom-control-label" for="compress-depth-ori">unchange</label>
+      	  	      </div>
+		      <div class="text-center">
+      	  		<button class="btn btn-outline-primary" type="submit" value="apply">apply </button>
+		      </div>
 		
-      	  	<!-- <div class="form-group"> -->
-      	  	<!--   <label for="formControlRange">resize</label> -->
-      	  	<!--   <input type="range" class="form-control-range" id="formControlRange"> -->
-      	  	<!-- </div> -->
-		<hr class="mb-2">		
-      	  	<button class="btn btn-outline-primary" type="button" value="apply">apply </button>
-      	  	<!-- <input class="btn btn-outline-primary" type="submit" value="add to templates"> -->
-      	      </form>
-	      
-      	    </div>
+      		    </form>
+		  </div>
+		</div>
+      	      </div>
 	    
-	    
-      	    <div class="col-sm-6 col-md-4 mb-4 mb-md-5">
-      	      <form class="img-op" id="resize">
-		<h4>resize</h4>
-      	  	<div class="form-group">
-      	  	  <label for="formControlRange">resize</label>
-      	  	  <input type="range" class="form-control-range" id="formControlRange">
-      	  	</div>
-		
-      	  	<button class="btn btn-outline-primary" type="submit" value="apply">apply </button>
-      	      </form>
-	      
-      	    </div>
-	    
-      	    <div class="col-sm-6 col-md-4 mb-4 mb-md-5">
-      	      <form class="img-op" id="convert">
-		<h4>convert</h4>
-      	  	<div class="form-check">
-      	  	  <input class ="form-check-input" type="checkbox" >
-      	  	  <label class ="form-check-label" for="default">
-      	  	    origin
-      	  	  </label>
-      	  	</div>
 
-      	  	<div class="form-check form-check-inline">
-      	  	  <input class ="form-check-input" type="radio" name="option-level">
-      	  	  <label class ="form-check-label" for="smallest">
-      	  	    smallest
-      	  	  </label>
-      	  	</div>
-      	  	<button class="btn btn-outline-primary" type="submit" value="apply">apply </button>
-      	      </form>
-      	    </div>
-	    
-      	    <div class="col-sm-6 col-md-4 mb-4 mb-md-5">
-      	      <form class="img-op" id="transparent">
-		<h4>transparent</h4>
-      	  	<div class="form-check">
-      	  	  <input class ="form-check-input" type="radio" name="option-level" checked >
-      	  	  <label class ="form-check-label" for="normal">
-      	  	    normal
-		  </label>
+      	      <div class="col-sm-6 col-md-4">
+      		<div class="card mb-4 px-0 ">
+		  <div class="card-header"><h4 class="my-0 font-weight-normal">Resize</h4></div>
+		  <div class="card-body">
+      		    <form class="img-op" id="resize">
+		      
+		      <div class="form-row ">
+			<div class="form-group form-inline">
+			  <label for="inputX" class="sr-only">X:</label>
+			  <div class="input-group">
+			    <div class="input-group-prepend">
+			      <span class="input-group-text">X:</span>
+			    </div>
+			    <input type="number" class="form-control" min="16" step="1" id="inputX">
+			  </div>
+			</div>
+			
+			<div class="form-group form-inline">
+			  <label for="inputY" class="sr-only">Y:</label>
+			  <div class="input-group">
+			    <div class="input-group-prepend">
+			      <span class="input-group-text">Y:</span>
+			    </div>
+			    <input type="number" class="form-control" min="16" step="1" id="inputY">
+			  </div>
+			</div>
+		      </div>
+		      
+		      <div class="form-row ">
+      	  		<div class="custom-control custom-checkbox">
+      	  		  <input type="checkbox" class="custom-control-input"  id="resizeIgnoreAspectRatio">
+      	  		  <label class="custom-control-label" for="resizeIgnoreAspectRatio">Ignore Aspect Ratio</label>
+      	  		</div>
+		      </div>
+		      
+		      <div class="text-center">
+      	  		<button class="btn btn-outline-primary" type="submit" value="apply">apply </button>
+		      </div>
 
-      	  	</div>
-		
-      	  	<div class="form-check form-check-inline">
-      	  	  <input class ="form-check-input" type="radio" name="option-level">
-      	  	  <label class ="form-check-label" for="smallest">
-      	  	    smallest
-      	  	  </label>
-      	  	</div>
-		
-      	  	<button class="btn btn-outline-primary" type="submit" value="apply">apply </button>
-      	      </form>
-      	    </div>
+      		    </form>
+		  </div>
+		</div>
+      	      </div>
 	    
-      	    <div class="col-sm-6 col-md-4 mb-4 mb-md-5">
-      	      <form class="img-op" id="watermark">
-		<h4>watermark</h4>
-      	  	<div class="form-check">
-      	  	  <input class ="form-check-input" type="radio" name="option-level" checked >
-      	  	  <label class ="form-check-label" for="normal">
-      	  	    normal
-      	  	  </label>
-      	  	</div>
-      	  	<button class="btn btn-outline-primary" type="submit" value="apply">apply </button>
-      	      </form>
-      	    </div>
+      	      <div class="col-sm-6 col-md-4">
+      		<div class="card mb-4 px-0 ">
+		  <div class="card-header"><h4 class="my-0 font-weight-normal">Convert</h4></div>
+		  <div class="card-body">
+      		    <form class="img-op" id="convert">
+      	  	      <select class="custom-select"  >
+			<option value="" selected> select the  image format... </option>
+			<option value="png"> png</option>
+			<option value="jpg"> jpeg</option>
+			<option value="gif"> gif</option>
+			<option value="webp"> webp</option>
+      	  	      </select>
+		      <div class="text-center">
+      	  		<button class="btn btn-outline-primary" type="submit" value="apply">apply </button>
+		      </div>
+      		    </form>
+		  </div>
+      		</div>
+	      </div>
+		
+      	      <div class="col-sm-6 col-md-4">
+      		<div class="card mb-4 px-0 ">
+		  <div class="card-header"><h4 class="my-0 font-weight-normal">Transparent</h4></div>
+		  <div class="card-body">
+      		    <form class="img-op" id="transparent">
+		      <p>get rid of the background for picture. the out put image format is png</p>
+		      
+		      <div class="text-center">
+      	  		<button class="btn btn-outline-primary" type="submit" value="apply">apply </button>
+		      </div>
+      		    </form>
+		  </div>
+		</div>
+      	      </div>
 	    
-      	    <div class="col-sm-6 col-md-4 mb-4 mb-md-5">
-      	      <form>
-      	    	<div class="form-check">
-      	    	  <input class ="form-check-input" type="radio" name="option-level" checked >
-      	    	  <label class ="form-check-label" for="normal">
-      	    	    normal
-      	    	  </label>
-      	    	</div>
+      	      <div class="col-sm-6 col-md-4">
+      		<div class="card mb-4 px-0 ">
+		  <div class="card-header"><h4 class="my-0 font-weight-normal">Watermark</h4></div>
+		  <div class="card-body">
+      		    <form class="img-op" id="watermark">
+		      <div class="form-group">
+			<label for="watermarkText" class="col-form-label">watermark text</label>
+			<input type="text" class="form-control"  id="watermarkText">
+		      </div>
+		      
+      	  	      <div class="custom-control">
+      	  		<label for="watermarkOpacity">opacity</label>
+      	  		<input type="range" class="custom-range" min="1" max="100" step="1" id="watermarkOpacity">
+      	  	      </div>
+		      
+		      <div class="text-center">
+      	  		<button class="btn btn-outline-primary" type="submit" value="apply">apply </button>
+		      </div>
+      		    </form>
+		  </div>
+		</div>
+      	      </div>
 
-      	    	<div class="form-check form-check-inline">
-      	    	  <input class ="form-check-input" type="radio" name="option-level">
-      	    	  <label class ="form-check-label" for="smallest">
-      	    	    smallest
-      	    	  </label>
-      	    	</div>
-		
-      	    	<div class="form-group">
-      	    	  <label for="formControlRange">resize</label>
-      	    	  <input type="range" class="form-control-range" id="formControlRange">
-      	    	</div>
-		
-      	    	<input class="btn btn-outline-primary" type="submit" value="apply">
-      	    	<input class="btn btn-outline-primary" type="submit" value="add to templates">
-      	      </form>
-      	    </div>
+      	      <div class="col-sm-6 col-md-4">
+      		<div class="card mb-4 px-0 ">
+		  <div class="card-header"><h4 class="my-0 font-weight-normal">Animate</h4></div>
+		  <div class="card-body">
+
+      		    <form class="img-op" id="animate">
+      	    	      <div class="custom-control">
+      	    		<label for="timeInterval">time interval</label>
+      	    		<input type="range" class="custom-range" id="timeInterval" min="0.1" max="10">
+      	    	      </div>
+		      <div class="text-center">
+      	  		<button class="btn btn-outline-primary" type="submit" value="apply">apply </button>
+		      </div>
+
+      		    </form>
+		  </div>
+		</div>
+      	      </div>
 	    
-      	  </div>
+      	    </div>
+	  </div>
       	</div>
 	
 	
@@ -248,9 +288,6 @@
 	  <p>&copy; 2018 - ZLAB</p>
     </footer>
     
-    <!-- js script ===================================== -->
-    <!-- <script src="{% static 'uploadfile.js' %}" ></script> -->
-
     <!-- Bootstrap core JavaScript -->
     <!-- Placed at the end of the document so the pages load faster -->
     <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
@@ -268,6 +305,8 @@
   <!-- <script src="{% static 'themes/fas/theme.js' %}" type="text/javascript"></script> -->
   <script src="{% static 'themes/explorer-fas/theme.js' %}" type="text/javascript"></script>
 
+  <script src="{% static 'main/upload.js' %}" type="text/javascript"></script>
+
   <!-- <script> -->
   <!--   $(document).on('ready', function () { -->
   <!--   $("#fileInput").fileinput(); -->
@@ -279,41 +318,50 @@
   <!--   theme: 'explorer-fas', -->
   <!--   }); -->
   <!-- </script> -->
+
+<!--   <script> -->
   
-  <script>
-    $("#file-input").fileinput({
-    theme: 'explorer-fas',
-    <!-- showPreview: false, -->
-    uploadUrl: 'main/upload',
-    maxFileSize: 2048,
-    maxFilesNum: 5,
-    allowedFileTypes: ['image'],
-    allowedFileExtensions: ['jpg', 'png', 'gif','ico'],
-    showUpload: false,
-    showRemove: false,
-    showUploadProgress: false,
-    browseIcon: "",
-    browseLabel: "Upload",
-    showCaption: false,
-    browseOnZoneClick: true,
-    overwriteInitial:false,
-    minFileCount:1,
-    maxFileCount:5,
-    uploadAsync: false,
-    ajaxSettings: {headers: {"X-CSRFToken": '{{ csrf_token }}'}},
-    }).on("filebatchselected", function(event,files){
-    $("#file-input").fileinput("upload");
-        });
-  </script>
-  <script>
-    $("#compress button").click(function(){
-    <!-- alert("good day"); -->
+<!-- $("#file-input").fileinput({ -->
+<!--     theme: 'explorer-fas', -->
+<!--     // showPreview: false,  -->
+<!--     uploadUrl: 'main/upload', -->
+<!--     maxFileSize: 2048, -->
+<!--     maxFilesNum: 5, -->
+<!--     allowedFileTypes: ['image'], -->
+<!--     allowedFileExtensions: ['jpg', 'png', 'gif','ico'], -->
+<!--     showUpload: false, -->
+<!--     showRemove: false, -->
+<!--     showUploadProgress: false, -->
+<!--     browseIcon: "", -->
+<!--     browseLabel: "Upload", -->
+<!--     showCaption: false, -->
+<!--     browseOnZoneClick: true, -->
+<!--     overwriteInitial:false, -->
+<!--     minFileCount:1, -->
+<!--     maxFileCount:5, -->
+<!--     uploadAsync: false, -->
+<!--     uploadExtraData: {img_op:'comress', -->
+<!--                       compress_level:'9'}, -->
+<!--     ajaxSettings: {headers: {"X-CSRFToken": '{{ csrf_token }}'}}, -->
+<!-- }).on("filebatchselected", function(event,files){ -->
+<!--     // uploadExtraData = { "img-op-list": [ {"img-op": 'compress',  -->
+<!--     //                                   "compress-level": 'stand'  -->
+<!--     //                                    }, ],  -->
+<!--     //  }  -->
+
+<!-- 	<\!-- uploadExtraData = {id:'kv-1'}; -\-> -->
+<!-- 	$("#file-input").fileinput("upload"); -->
+<!-- }); -->
+
+<!-- $("#compress button").click(function(){ -->
+<!--     //  alert("good day");  -->
     
-    <!-- $("form.imag-op") -->
-    <!-- add compress image operation-->
+<!--     // $("form.imag-op")  -->
+<!--     // add compress image operation -->
     
-    });
-  </script>
+<!-- }); -->
+  
+<!--   </script> -->
 
 
 
