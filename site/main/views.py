@@ -1,3 +1,4 @@
+import os
 from django.http import HttpResponse,JsonResponse,HttpResponseNotAllowed
 from django import forms
 from django.core.files.storage import default_storage
@@ -31,9 +32,9 @@ def processing(f, params):
 
     if operation == 'compress':
         compress_level = params['compress_level']
-        depth = params['depth']
-        img.write(f.name)
-        
+        # depth = params['depth']
+        img.quality(int(compress_level))
+        img.write(default_storage.location + "/"+ f.name)
         
     elif operation == 'resize':
         width = params['width']
@@ -41,13 +42,18 @@ def processing(f, params):
         ignoreAspectRatio = params['ignoreAspectRatio']
         
         img.filterType(FilterTypes.SincFilter)
-        # img.resize(width+'x'+height)
-        img.scale(width+'x'+height)
-        img.write(f.name)
-        
+        # geometry = Geometry( int(width), int(height) ).aspect(ignoreAspectRatio=='True')
+        # img.resize(Geometry( int(width), int(height) ).aspect(ignoreAspectRatio=='True'))
+        geo = Geometry( int(width), int(height) )
+        geo.aspect(ignoreAspectRatio=='True' or ignoreAspectRatio=='true')
+        img.resize(geo)
+        # img.resize(Geometry( int(width), int(height) ))
+        img.write(default_storage.location + "/"+ f.name)
+
     elif operation == 'convert':
         img_type = params['img_type'];
-        
+        img.write(default_storage.location + "/"+ os.path.splitext(f.name)[0] + '.' + img_type)
+         
     elif operation == 'transparent':
         pass
     
