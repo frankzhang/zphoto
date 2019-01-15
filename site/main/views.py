@@ -32,8 +32,31 @@ def processing(f, params):
 
     if operation == 'compress':
         compress_level = params['compress_level']
-        # depth = params['depth']
-        img.quality(int(compress_level))
+        quality = 75
+        colorIndex = params['colorIndex']
+        
+        if compress_level == 'tiny':
+            if img.magick() == 'PNG':
+                    quality = 95
+            else:
+                    quality = 50
+        elif compress_level == 'quality':
+            if img.magick == 'PNG':
+                    quality = 75
+            else:
+                    quality = 90
+        else:
+            quality = 75
+
+        print(img.magick())
+            
+        if img.magick() == 'PNG' and (colorIndex == 'True' or colorIndex) == 'true':
+            img.quantizeColors(256)
+            img.quantize()
+            print(colorIndex)
+            print('set img colors to 256')
+            # img.depth(8)
+        img.quality(quality)
         img.write(default_storage.location + "/"+ f.name)
         
     elif operation == 'resize':
@@ -55,6 +78,7 @@ def processing(f, params):
         img.write(default_storage.location + "/"+ os.path.splitext(f.name)[0] + '.' + img_type)
          
     elif operation == 'transparent':
+        transparentColor = params['transparentColor']
         pass
     
     elif operation == 'watermark':
@@ -62,8 +86,7 @@ def processing(f, params):
         opacity = params['opacity']
         
     elif operation == 'Animate':
-        
-        interval = params['interval']
+        interval = params['delay']
     else:
         pass
             

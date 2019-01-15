@@ -132,7 +132,7 @@
 		      <fieldset class="form-group">
       	  	      	<label class="sr-only">Compress Level</label>
 		      	<div class="custom-control custom-radio">
-      	  	      	  <input class="custom-control-input" type="radio" id="compress-min" value="min" name="compress-level" >
+      	  	      	  <input class="custom-control-input" type="radio" id="compress-min" value="tiny" name="compress-level" >
       	  	      	  <label class="custom-control-label" for="compress-min">tiny</label>
       	  	      	</div>
 		      	<div class="custom-control custom-radio">
@@ -140,7 +140,7 @@
       	  	      	  <label class="custom-control-label" for="compress-default">default(recomend)</label>
       	  	      	</div>
 		      	<div class="custom-control custom-radio">
-      	  	      	  <input class="custom-control-input" type="radio" id="compress-max" value="max" name="compress-level" >
+      	  	      	  <input class="custom-control-input" type="radio" id="compress-max" value="quality" name="compress-level" >
       	  	      	  <label class="custom-control-label" for="compress-max">quality</label>
       	  	      	</div>
 		      </fieldset>
@@ -148,7 +148,7 @@
 		      <div class="form-row">
       	  		<div class="custom-control custom-checkbox form-group">
       	  		  <input type="checkbox" class="custom-control-input"  id="enableColorIndex">
-      	  		  <label class="custom-control-label" for="enableColorIndex">enable colore index</label>
+      	  		  <label class="custom-control-label" for="enableColorIndex">enable color index</label>
       	  		</div>
 		      </div>
 		      
@@ -174,22 +174,22 @@
 		      <div class="form-row ">
 			
 			<div class="form-group col-sm-6">
-			  <label for="inputX" class="sr-only">W:</label>
+			  <label for="resizeWidth" class="sr-only">W</label>
 			  <div class="input-group">
 			    <div class="input-group-prepend">
-			      <span class="input-group-text">W:</span>
+			      <span class="input-group-text">W</span>
 			    </div>
-			    <input type="number" class="form-control" min="16" step="1" id="inputX">
+			    <input type="number" class="form-control" min="16" step="1" id="resizeWidth">
 			  </div>
 			</div>
 			
 			<div class="form-group col-sm-6" >
-			  <label for="inputY" class="sr-only">H:</label>
+			  <label for="resizeHeight" class="sr-only">H</label>
 			  <div class="input-group">
 			    <div class="input-group-prepend">
-			      <span class="input-group-text">H:</span>
+			      <span class="input-group-text">H</span>
 			    </div>
-			    <input type="number" class="form-control" min="16" step="1" id="inputY">
+			    <input type="number" class="form-control" min="16" step="1" id="resizeHeight">
 			  </div>
 			</div>
 		      </div>

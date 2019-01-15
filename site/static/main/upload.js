@@ -55,16 +55,16 @@ function uploadExtraOption(previewId, index)
         case "Compress":
 	return {
 	    img_op :  'compress',
-	    compress_level:  $("#compressLevel").val(),
-	    depth: $( "input[name=compress-depth]:checked" ).val()
+	    compress_level: $( "input[name=compress-level]:checked" ).val(),
+	    colorIndex : $("#enableColorIndex").prop("checked")
 	};
 	break;
 	
 	case "Resize":
 	return {
 	    img_op :  'resize',
-	    width: $("#inputX").val(),
-	    height: $("#inputY").val(),
+	    width: $("#resizeWidth").val(),
+	    height: $("#resizeHeight").val(),
 	    ignoreAspectRatio : $("#resizeIgnoreAspectRatio").prop("checked")
 	};
 	break;
@@ -72,20 +72,22 @@ function uploadExtraOption(previewId, index)
 	case "Convert":
 	return {
 	    img_op :  'convert',
-	    img_type: $("select#convertType option:selected").val()
+	    img_type: $("select#convertType option:selected").val(),
+	    keepMaxInfo : $("#resizeIgnoreAspectRatio").prop("checked")
 	};
 	break;
 	
 	case "Transparent":
 	return {
-	    img_op :  'transparent'
+	    img_op :  'transparent',
+	    transparentColor: $("#transparentColor").val()
 	};
 	break;
 	
 	case "Watermark":
 	return {
 	    img_op :  'watermark',
-	    wotermarkText: $("#watermarkText").val(),
+	    watermarkText: $("#watermarkText").val(),
 	    opacity:  $("#watermarkOpacity").val()
 	};
 	break;
@@ -93,11 +95,11 @@ function uploadExtraOption(previewId, index)
 	case "Animate":
 	return {
 	    img_op :  'animate',
-	    interval :  $("#timeInterval").val()
+	    delay :  $("#timeDelay").val()
 	};
 	break;
 	default:
-	ret = { img_op:'compress', compress_level:7, depth:8};
+	ret = { img_op:'compress', compress_level:'default', depth:8};
 	}
     
     return ret;
