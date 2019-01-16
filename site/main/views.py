@@ -5,7 +5,11 @@ from django.core.files.storage import default_storage
 from django.core.files import File
 from pgmagick import Image, Blob, Geometry, FilterTypes
 
+from django.shortcuts import render
+
 # Create your views here.
+def index(request):
+    return render(request,'index.html')
 
 def upload(request):
     if request.method == 'POST':

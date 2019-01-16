@@ -21,7 +21,7 @@ var csrftoken = getCookie('csrftoken');
 $("#file-input").fileinput({
     theme: 'explorer-fas',
     // showPreview: false, 
-    uploadUrl: 'main/upload',
+    uploadUrl: 'upload',
     maxFileSize: 2048,
     maxFilesNum: 5,
     allowedFileTypes: ['image'],
