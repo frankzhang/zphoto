@@ -25,9 +25,11 @@ $("#file-input").fileinput({
     maxFileSize: 2048,
     maxFilesNum: 5,
     allowedFileTypes: ['image'],
-    allowedFileExtensions: ['jpg', 'png', 'gif','ico'],
+    allowedFileExtensions: ['jpg', 'png', 'gif','ico','webp'],
     showUpload: false,
     showRemove: false,
+    // showDownload: true,
+    showUploadedThumbs: false,
     showUploadProgress: false,
     browseIcon: "",
     browseLabel: "Upload",
@@ -42,7 +44,12 @@ $("#file-input").fileinput({
 }).on("filebatchselected", function(event,files){
     
     $("#file-input").fileinput("upload");
+    console.log('File batch uploading...');
     
+}).on('filebatchuploadsuccess', function(event, data) {
+    var form = data.form, files = data.files, extra = data.extra,
+	response = data.response, reader = data.reader;
+    console.log('File batch upload success');
 });
 
 function uploadExtraOption(previewId, index)
@@ -80,7 +87,8 @@ function uploadExtraOption(previewId, index)
 	case "Transparent":
 	return {
 	    img_op :  'transparent',
-	    transparentColor: $("#transparentColor").val()
+	    transparentColor: $("#transparentColor").val(),
+	    colorFuzz: $("#colorFuzz").val()
 	};
 	break;
 	

@@ -3,7 +3,7 @@ from django.http import HttpResponse,JsonResponse,HttpResponseNotAllowed
 from django import forms
 from django.core.files.storage import default_storage
 from django.core.files import File
-from pgmagick import Image, Blob, Geometry, FilterTypes
+from pgmagick import Image, Blob, Geometry, FilterTypes, Color
 
 from django.shortcuts import render
 
@@ -12,6 +12,7 @@ def index(request):
     return render(request,'index.html')
 
 def upload(request):
+    ret = {}
     if request.method == 'POST':
         print(request.POST)
         print(request.FILES)
@@ -24,8 +25,21 @@ def upload(request):
                 processing(f,request.POST)
             else:
                 default_storage.save(None,f)
-
-        return JsonResponse({'msg':'SUCESS'})
+            
+        return JsonResponse({
+            'msg':'SUCESS',
+            'initialPreview': [
+                "http://localhost:8000/media/"+f.name,
+                ],
+            'initialPreviewConfig': [
+                { 'caption': "test1",
+                      'downloadUrl': 'http://localhost:8000/media/'+f.name,
+                      'key': '1'
+                }
+                ],
+                'append': 'true'
+            
+            })
 
     return HttpResponseNotAllowed(permitted_methods=['POST'])
 
@@ -83,7 +97,10 @@ def processing(f, params):
          
     elif operation == 'transparent':
         transparentColor = params['transparentColor']
-        pass
+        fuzz =  params['colorFuzz']
+        img.transparent(Color(transparentColor))
+        img.colorFuzz(float(fuzz)/100)
+        img.write(default_storage.location + "/"+ os.path.splitext(f.name)[0] + '.png')
     
     elif operation == 'watermark':
         watermarkText = params['ignoreAspectRatio']
