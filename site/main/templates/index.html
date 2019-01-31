@@ -173,7 +173,7 @@
 			    <div class="input-group-prepend">
 			      <span class="input-group-text">W</span>
 			    </div>
-			    <input type="number" class="form-control" min="16" step="1" id="resizeWidth">
+			    <input type="number" class="form-control" min="16" step="1" value="100" id="resizeWidth">
 			  </div>
 			</div>
 			
@@ -183,7 +183,7 @@
 			    <div class="input-group-prepend">
 			      <span class="input-group-text">H</span>
 			    </div>
-			    <input type="number" class="form-control" min="16" step="1" id="resizeHeight">
+			    <input type="number" class="form-control" min="16" step="1" value="100" id="resizeHeight">
 			  </div>
 			</div>
 		      </div>
@@ -244,7 +244,7 @@
 
       	  	      <div class="form-group">
 			<label for="transparentColor">back groud color</label>
-      	  		<input type="color" class="form-control"  style="width:5rem" id="transparentColor">
+      	  		<input type="color" class="form-control"  style="width:5rem" id="transparentColor" value="#ffffff" >
       	  	      </div>
 		      
       	  	      <div class="custom-control form-group pl-0">
@@ -267,15 +267,26 @@
 		  <div class="card-header"><h4 class="my-0 font-weight-normal">Watermark</h4></div>
 		  <div class="card-body">
       		    <form class="img-op" id="watermark">
+		      
 		      <div class="form-group">
 			<label for="watermarkText" class="col-form-label">Text</label>
 			<input type="text" class="form-control"  id="watermarkText">
 		      </div>
 		      
-      	  		<div class="custom-control form-group pl-0">
-      	  		  <label for="watermarkOpacity">opacity:</label>
-      	  		  <input type="range" class="custom-range" min="0" max="1" step="0.01" value="0.5" id="watermarkOpacity">
-      	  		</div>
+		      <div class="form-group">
+			<label for="fontStyle">font</label>
+      	  		<select class="custom-select" id="fontStyle" >
+			  <option value="Helvetica" selected>Helvetica</option>
+			  <option value="Arial"> Arial</option>
+			  <option value="Times New Roman"> Times New Roman</option>
+			  <option value="Courier New"> Courier New</option>
+      	  		</select>
+		      </div>
+		      
+      	  	      <div class="custom-control form-group pl-0">
+      	  		<label for="watermarkOpacity">opacity:</label>
+      	  		<input type="range" class="custom-range" min="0" max="1" step="0.01" value="0.5" id="watermarkOpacity">
+      	  	      </div>
 
 		      
 		      <div class="text-center d-none">
@@ -294,7 +305,7 @@
       		    <form class="img-op" id="animate">
       	    	      <div class="form-group pl-0 ">
       	    		<label for="timeDelay">delay</label>
-      	    		<input type="number" class="form-control" id="timeDelay" min="1" max="1000">
+      	    		<input type="number" class="form-control" id="timeDelay" min="1" max="1000" value="50">
       	    	      </div>
 		      
       	  	      <div class="custom-control custom-checkbox form-group">
