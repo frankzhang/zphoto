@@ -27,10 +27,13 @@ $("#file-input").fileinput({
     allowedFileTypes: ['image'],
     allowedFileExtensions: ['jpg', 'png', 'gif','ico','webp'],
     showUpload: false,
-    showRemove: false,
+    // showRemove: true,
+    // showDownload: true,
+    showClose: false,
+    fileActionSettings:{showDrag: false},
     showUploadedThumbs: true,
     showUploadProgress: false,
-    browseIcon: "",
+    browseIcon: "<i class = 'fas fa-upload'></i>",
     browseLabel: "Upload",
     showCaption: false,
     browseOnZoneClick: true,
@@ -48,7 +51,9 @@ $("#file-input").fileinput({
 }).on('filebatchuploadsuccess', function(event, data) {
     var form = data.form, files = data.files, extra = data.extra,
 	response = data.response, reader = data.reader;
+    
     console.log('File batch upload success');
+    console.log($('#file-input').fileinput('getFrames'));    
 });
 
 function uploadExtraOption(previewId, index)

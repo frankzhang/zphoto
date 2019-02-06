@@ -27,13 +27,13 @@ def upload(request):
             print(f)
             if 'img_op' in request.POST:
                 fname = processing(f,request.POST)
-                
-                initalPreview.append("<img src='http://debian-workstation.local:8000/media/"+fname+"' class='file-preview-image' style='width:auto;height:60px;max-width:100%;max-height:100%;' alt='image' title='" + os.path.splitext(fname)[0]+"'>")
+                # http://debian-workstation.local:8000
+                initalPreview.append("<img src='" + settings.MEDIA_URL+fname+"' class='file-preview-image' style='width:auto;height:auto;max-width:100%;max-height:100%;' alt='image' title='" + os.path.splitext(fname)[0]+"'>")
 
                 initialPreviewConfig.append(
                     { 'caption': os.path.splitext(f.name)[0]+os.path.splitext(fname)[-1],
                        'size': os.path.getsize(settings.MEDIA_ROOT + "/"+ fname),
-                       'downloadUrl': 'http://debian-workstation.local:8000/media/'+fname,
+                       'downloadUrl': settings.MEDIA_URL+fname,
                     })
                 print(initialPreviewConfig)
 
@@ -104,6 +104,7 @@ def processing(f, params):
     elif operation == 'transparent':
         transparentColor = params['transparentColor']
         fuzz =  params['colorFuzz']
+                
         img.transparent(Color(transparentColor))
         img.colorFuzz(float(fuzz)/100)
         name = os.path.splitext(f.name)[0] + '.png'
